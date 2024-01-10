@@ -66,6 +66,6 @@ Cómo resolverlo
     2. Crea un programa al que le pases como entrada el mensaje anterior. Envía la salida con el comando "submit" en la terminal, por ejemplo así:
     submit 024899488
 
-##
+solucion= 024899455
 
 
