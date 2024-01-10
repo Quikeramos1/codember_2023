@@ -3,14 +3,14 @@ import re
 def open_file(file):
     try:
         open_file = open(file, "r")
-        return open_file 
+        return open_file.read() 
 
     except:
-        return print("El archivo no ha podido ser abierto")
-
+        return print("El archivo no ha podido ser abierto"), exit
+        
         
 def deshide(open_file):
-   linea = open_file.read()
+   linea = open_file
    solucion = []
    contador = 0
    for i in linea:
