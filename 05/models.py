@@ -8,8 +8,6 @@ def open_file(file):
     except Exception as e:
         raise Exception(f"Error al abrir el archivo: {str(e)}")
 
-
-
 def decode(file):
     no_valido=[]
     linea = file.split("\n")
@@ -28,68 +26,60 @@ def decode(file):
         #compruebo requisitos de id: "existe y es alfanumérica"
         if id == "":
             no_valido.append(username)
-            
-        
+             
         else:
             for i in id:
+                i=i.lower()
                 if i not in descubre_simbolos and username not in no_valido:
                     no_valido.append(username)
         
-        #compruebo requisitos de username: "existe y es alfanumérico"
-                    
-            if username == "" and username not in no_valido:
+        #compruebo requisitos de username: "existe y es alfanumérico"            
+        if username == "" and username not in no_valido:
+            no_valido.append(username)
+        
+        else:
+            for i in username:
+                i=i.lower()
+                if i not in descubre_simbolos and username not in no_valido:
+                    no_valido.append(username)
+        
+        #compruebo requisitos de email: "existe y es válido (sigue el patrón user@dominio.com)"
+        if email =="" and username not in no_valido:
+            no_valido.append(username)
+
+        else:
+            if "@" not in email and username not in no_valido:
+                no_valido.append(username)
+            elif ".com" not in email and username not in no_valido:
+                no_valido.append(username)
+        #controlo tambien que la "@" solo exista una vez en el email
+            elif email.count("@") >1 and username not in no_valido:
                 no_valido.append(username)
             
-            else:
-                for i in username:
-                    i=i.lower()
-                    if i not in descubre_simbolos and username not in no_valido:
-                        no_valido.append(username)
-
-        #compruebo requisitos de email: "existe y es válido (sigue el patrón user@dominio.com)"
-                if email =="":
-                    if username not in no_valido:
-                        no_valido.append(username)
-                else:
-                    if "@" not in email :
-                        if username not in no_valido:
-                            no_valido.append(username)
-                    elif ".com" not in email:
-                        if username not in no_valido:
-                            no_valido.append(username)
-
         #comrpuebo requisitos de age: "es opcional pero si aparece es un número"            
-                    if age != "":
-                        try:
-                            int(age)
-                        except:
-                            if username not in no_valido:
-                                no_valido.append(username)
-
+        if age != "":
+            try:
+                int(age)
+            except:
+                if username not in no_valido:
+                    no_valido.append(username)
+       
         #compruebo requisitos de location: "es opcional pero si aparece es una cadena de texto"            
-                        if location != "":
-                            for i in location:
-                                i = i.lower()
-                                if i not in letras and username not in no_valido:
-                                    no_valido.append(username)
-
+        if location != "":
+            try:
+                str(location)
+            except:
+                no_valido.append(username)
+                   
     secret = []
-    
     for usuario in no_valido:
         usuario = list(usuario)
         secret.append(usuario[0])
 
     resultado = ""
-
-    for i in secret:
-        
+    for i in secret:     
         resultado = resultado+i
        
-
-        
-        
-
-    print(no_valido)
     print(resultado)
             
 

@@ -181,3 +181,5 @@ Ejemplos:
 
     2. Encuentra el primer caracter (número o letra) del username de cada usuario inválido. Júntalos por orden de aparición y descubre el mensaje oculto. Luego envíalo con submit. Por ejemplo:
     submit att4ck
+
+solucion = youh4v3beenpwnd
