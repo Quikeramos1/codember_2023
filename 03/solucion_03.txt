@@ -1,1 +1,5 @@
 solución = bgamidqewtbus
+
+acceso a private:
+
+solución = 

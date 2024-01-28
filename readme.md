@@ -1,4 +1,5 @@
 ![Codember2023](codember.png)
+![Puntuación](puntuacion.png)
 
 # Soluciones a retos de Codember.dev
 
